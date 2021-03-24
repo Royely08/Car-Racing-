@@ -8,7 +8,7 @@ car1_y = 10;
 
 car2_width = 100;
 car2_height = 90;
-car2_x = 100;
+car2_x = 10;
 car2_y = 100;
 
 background_img = "Racing Road.jpg";
@@ -75,6 +75,30 @@ function my_keydown(e)
         right();
         console.log("Right")
     }
+
+    if (keyPressed == '61')
+    {
+        a();
+        console.log("Up Car 2")
+    }
+
+    if (keyPressed == '73')
+    {
+        s();
+        console.log("Down Car 2")
+    }
+
+    if (keyPressed == '77')
+    {
+        w();
+        console.log("Left Car 2")
+    }
+
+    if (keyPressed == '61')
+    {
+        d();
+        console.log("Rigth Car 2")
+    }
 }
 
 function up()
@@ -86,13 +110,16 @@ function up()
         uploadcar1();
         uploadcar2()
     }
+}
 
+function a()
+{
     if (car2_y >= 0){
-        car2_y -= 10;
+        car2_y -= 100;
         console.log("When UP arrow is pressed, x = " + car2_x + " | y = " + car2_y);
         uploadBackground();
         uploadcar1();
-        uploadcar2();
+        uploadcar2()
     }
 }
 
@@ -105,15 +132,18 @@ function down()
         uploadcar1();
         uploadcar2();
     }
+}
+
+function s()
+{
     if(car2_y <= 500){
-        car2_y += 10;
+        car2_y += 100;
         console.log("When DOWN arrow is pressed, x = " + car2_x + " | y = " + car2_y);
         uploadBackground();
         uploadcar1();
         uploadcar2();
     }
 }
-
 function left()
 {
     if (car1_x >= 0){
@@ -123,6 +153,10 @@ function left()
         uploadcar1();
         uploadcar2();
     }
+}
+
+function w()
+{
     if (car2_x >= 0){
         car2_x -= 10;
         console.log("When LEFT arrow is pressed, x = " + car2_x + " | y = " + car2_y);
@@ -141,6 +175,10 @@ function right()
         uploadcar1();
         uploadcar2();
     }
+}
+
+function d()
+{
     if (car2_x <= 700){
         car2_x += 10;
         console.log("When RIGHT arrow is pressed, x = " + car2_x + " | y = " + car2_y);
@@ -148,6 +186,11 @@ function right()
         uploadcar1();
         uploadcar2();
     }
+}
+if(car2_x > 700)
+{
+    console.log("Car 1 Won");
+    document.getElementById('game_status').innerHTML = 'Car 1 Won!!!';
 }
 
 
